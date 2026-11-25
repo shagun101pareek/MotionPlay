@@ -1,0 +1,36 @@
+{
+  "name": "@motionplay/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000 --experimental-https --experimental-https-key ../../certs/key.pem --experimental-https-cert ../../certs/cert.pem",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test games/badminton/BadmintonPhysics.test.ts games/table-tennis/TableTennisPhysics.test.ts games/table-tennis/TableTennisAI.test.ts games/tennis/TennisPhysics.test.ts"
+  },
+  "dependencies": {
+    "@motionplay/shared": "*",
+    "next": "^15.5.6",
+    "phaser": "^3.88.2",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "socket.io-client": "^4.8.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/three": "^0.187.0",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^15.5.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
+  }
+}

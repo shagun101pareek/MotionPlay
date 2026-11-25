@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100dvh;
+  background: #07080d;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input[type='range'] {
+  accent-color: #8d7bff;
+}
+
+@keyframes scan {
+  from { top: 8%; }
+  to { top: 86%; }
+}
+
+.scan-line {
+  animation: scan 1.8s ease-in-out infinite alternate;
+}

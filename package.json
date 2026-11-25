@@ -1,0 +1,24 @@
+{
+  "name": "motionplay",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A motion-controlled racket-sports console. The laptop plays the game and a phone is the controller.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build -w @motionplay/shared && npm run build -w @motionplay/controller-engine && concurrently -k -n shared,controller,server,web -c cyan,blue,magenta,green \"npm run dev -w @motionplay/shared\" \"npm run dev -w @motionplay/controller-engine\" \"npm run dev -w @motionplay/server\" \"npm run dev -w @motionplay/web\"",
+    "build": "npm run build -w @motionplay/shared && npm run build -w @motionplay/controller-engine && npm run build -w @motionplay/server && npm run build -w @motionplay/web",
+    "start": "npm run build -w @motionplay/shared && npm run build -w @motionplay/controller-engine && concurrently -k -n server,web -c magenta,green \"npm run start -w @motionplay/server\" \"npm run start -w @motionplay/web\"",
+    "lint": "npm run build -w @motionplay/shared && npm run build -w @motionplay/controller-engine && npm run lint -w @motionplay/web && npm run typecheck -w @motionplay/server && npm run typecheck -w @motionplay/shared && npm run typecheck -w @motionplay/controller-engine",
+    "typecheck": "npm run build -w @motionplay/shared && npm run build -w @motionplay/controller-engine && npm run typecheck -w @motionplay/shared && npm run typecheck -w @motionplay/controller-engine && npm run typecheck -w @motionplay/server && npm run typecheck -w @motionplay/web",
+    "test": "npm run build -w @motionplay/shared && npm run test -w @motionplay/server && npm run test -w @motionplay/shared && npm run test -w @motionplay/controller-engine && npm run test -w @motionplay/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
